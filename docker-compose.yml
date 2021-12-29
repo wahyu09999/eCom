@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    image: muhammadshiva/e-commerce-docker:latest
+    image: gustiherjuno/e-commerce-docker:latest
     container_name: app
     restart: unless-stopped
     tty: true
@@ -11,7 +11,7 @@ services:
       - app-network
 
   web_server:
-    image: muhammadshiva/e-commerce-docker-web_server:latest
+    image: gustiherjuno/e-commerce-docker-web_server:latest
     container_name: web_server
     restart: unless-stopped
     tty: true
