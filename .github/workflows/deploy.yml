@@ -103,6 +103,5 @@ jobs:
             sudo docker exec app /bin/bash -c "echo 'DB_USERNAME=${{ secrets.DB_USERNAME }}' >> .env"
             sudo docker exec app /bin/bash -c "echo 'DB_PASSWORD=${{ secrets.DB_PASSWORD }}' >> .env"
             sudo docker exec app /bin/bash -c "echo 'DB_REDIS=cache' >> .env"
-            sudo docker exec e-commerce-docker php artisan migrate
-            sudo docker exec e-commerce-docker php artisan db:seed
+            sudo docker exec app /bin/bash -c "php artisan migrate:fresh --seed"
             sudo docker exec app /bin/bash -c "php artisan storage:link"
