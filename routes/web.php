@@ -27,7 +27,8 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 Route::get('/mysql', function () {
-    Artisan::call('migrate:fresh --seed');
+    Artisan::call('migrate:fresh');
+    Artisan:call:('db:seed');
   });
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('data-profil', [BerandaController::class, 'profil'])->name('beranda.profil');
