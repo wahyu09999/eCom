@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\OrderController as AdminOrderController;
 use App\Http\Controllers\Admin\ProdukController as AdminProdukController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/mysql', function () {
+    Artisan::call('migrate:fresh --seed');
+  });
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 Route::get('data-profil', [BerandaController::class, 'profil'])->name('beranda.profil');
 Route::put('data-profil/{id}', [BerandaController::class, 'updateProfil'])->name('beranda.updateprofil');
